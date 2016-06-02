@@ -35,54 +35,54 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6365804B-22C6-4D5E-91F3-0C052EB55B4F}</ProjectGuid>
-    <RootNamespace>tvcombo</RootNamespace>
+    <ProjectGuid>{7FB5F4A6-74F9-471D-B358-BAA0AC1CCA0A}</ProjectGuid>
+    <RootNamespace>tvdevice</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -158,7 +158,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\ixml\inc;..\..\upnp\sample\common;..\inc;..\..\threadutil\inc;..\..\pthreads;..\..\pthreads\include;..\..\upnp\sample\tvdevice;..\..\upnp\sample\tvdevice\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;DEBUG;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -170,13 +170,17 @@
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
     <Midl>
@@ -184,8 +188,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;DEBUG;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\ixml\inc;..\..\upnp\sample\common;..\inc;..\..\threadutil\inc;..\..\pthreads;..\..\pthreads\include;..\..\upnp\sample\tvdevice;..\..\upnp\sample\tvdevice\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;DEBUG;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -196,20 +200,24 @@
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;RELEASE;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;RELEASE;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -221,7 +229,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -229,6 +237,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
     <Midl>
@@ -238,7 +250,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;RELEASE;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;RELEASE;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -250,7 +262,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -258,11 +270,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\ixml\inc;..\..\upnp\sample\common;..\inc;..\..\threadutil\inc;..\..\pthreads;..\..\pthreads\include;..\..\upnp\sample\tvdevice;..\..\upnp\sample\tvdevice\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;DEBUG;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -274,13 +290,17 @@
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnpd.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -288,8 +308,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;DEBUG;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\ixml\inc;..\..\upnp\sample\common;..\inc;..\..\threadutil\inc;..\..\pthreads;..\..\pthreads\include;..\..\upnp\sample\tvdevice;..\..\upnp\sample\tvdevice\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;DEBUG;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -300,20 +320,24 @@
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnpd.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;RELEASE;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;NDEBUG;RELEASE;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -325,7 +349,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -333,6 +357,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -342,7 +370,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\..\upnp\inc;..\..\upnp\sample\common;..\..\upnp\sample;..\..\ixml\inc;..\..\pthreads;..\..\pthreads\include;..\inc;..\..\threadutil\inc;..\..\upnp\sample\tvcombo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;RELEASE;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;NDEBUG;RELEASE;_WINDOWS;PTW32_STATIC_LIB;UPNP_STATIC_LIB;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -354,7 +382,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>pthreadVC2.lib;ixml.lib;threadutil.lib;libupnp.lib;ws2_32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -362,16 +390,18 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>move $(OutDir)tvdevice.exe $(SolutionDir)..\upnp\sample
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\upnp\sample\common\sample_util.c" />
-    <ClCompile Include="..\..\upnp\sample\common\tv_ctrlpt.c" />
     <ClCompile Include="..\..\upnp\sample\common\tv_device.c" />
-    <ClCompile Include="..\..\upnp\sample\linux\tv_combo_main.c" />
+    <ClCompile Include="..\..\upnp\sample\linux\tv_device_main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\upnp\sample\common\sample_util.h" />
-    <ClInclude Include="..\..\upnp\sample\common\tv_ctrlpt.h" />
     <ClInclude Include="..\..\upnp\sample\common\tv_device.h" />
   </ItemGroup>
   <ItemGroup>

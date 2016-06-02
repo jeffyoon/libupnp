@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libupnp", "..\build\vc9\libupnp.vcxproj", "{6227F51A-1498-4C4A-B213-F6FDED605125}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libupnp", "..\build\VS2015\libupnp.vcxproj", "{6227F51A-1498-4C4A-B213-F6FDED605125}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ixml", "..\build\vc9\ixml.vcxproj", "{9C2C266D-35A3-465F-A297-0E21D54E5C89}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ixml", "..\build\VS2015\ixml.vcxproj", "{9C2C266D-35A3-465F-A297-0E21D54E5C89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependencies", "dependencies", "{9A01C9FF-6331-4510-B971-2BCD1CA970FD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threadutil", "..\build\vc9\threadutil.vcxproj", "{1D3EEF7A-D248-48C0-B6B5-ECA229FE4B3D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threadutil", "..\build\VS2015\threadutil.vcxproj", "{1D3EEF7A-D248-48C0-B6B5-ECA229FE4B3D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvcombo", "..\build\vc9\tvcombo.vcxproj", "{6365804B-22C6-4D5E-91F3-0C052EB55B4F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvcombo", "..\build\VS2015\tvcombo.vcxproj", "{6365804B-22C6-4D5E-91F3-0C052EB55B4F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvctrlpt", "..\build\vc9\tvctrlpt.vcxproj", "{8FB56F1C-E617-4B79-96AE-1FA499A3A9B5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvctrlpt", "..\build\VS2015\tvctrlpt.vcxproj", "{8FB56F1C-E617-4B79-96AE-1FA499A3A9B5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvdevice", "..\build\vc9\tvdevice.vcxproj", "{7FB5F4A6-74F9-471D-B358-BAA0AC1CCA0A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tvdevice", "..\build\VS2015\tvdevice.vcxproj", "{7FB5F4A6-74F9-471D-B358-BAA0AC1CCA0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

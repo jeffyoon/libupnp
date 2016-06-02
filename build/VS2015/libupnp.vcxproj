@@ -204,7 +204,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>pthreadvc2.lib;ws2_32.lib;iphlpapi.lib;ixml.lib;threadutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir)%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -227,7 +227,13 @@
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x86
+xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x86
+mkdir $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
@@ -266,7 +272,7 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>pthreadvc2.lib;ws2_32.lib;iphlpapi.lib;ixml.lib;threadutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir)%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -289,7 +295,13 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x64
+xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x64
+mkdir $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
@@ -314,7 +326,7 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
       <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <BrowseInformation />
       <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
       <DisableSpecificWarnings>4244;4267;4311;4477;4996;</DisableSpecificWarnings>
@@ -325,9 +337,9 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>pthreadvc2.lib;ws2_32.lib;iphlpapi.lib;ixml.lib;threadutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <SuppressStartupBanner>false</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -348,7 +360,13 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x86
+xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x86
+mkdir $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
@@ -384,9 +402,9 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>pthreadvc2.lib;ws2_32.lib;iphlpapi.lib;ixml.lib;threadutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -404,7 +422,13 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x64
+xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x64
+mkdir $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -429,7 +453,7 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
       <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
       <BrowseInformation />
       <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>CompileAsC</CompileAs>
       <DisableSpecificWarnings>4244;4267;4311;4477;4996;</DisableSpecificWarnings>
@@ -454,7 +478,10 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x86
+xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x86</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -500,7 +527,10 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x64
+xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x64</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -549,7 +579,10 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x86
+xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x86</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -598,7 +631,10 @@ xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
 xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include
 xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include</Command>
+xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include
+mkdir $(SolutionDir)..\..\lib
+mkdir $(SolutionDir)..\..\lib\x64
+xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x64</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
