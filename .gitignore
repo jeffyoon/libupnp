@@ -17,6 +17,7 @@ Release/
 *.db
 IUpnpErrFile.txt
 IUpnpInfoFile.txt
+*.rej
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
