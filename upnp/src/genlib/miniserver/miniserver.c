@@ -68,6 +68,13 @@
 /*! . */
 #define APPLICATION_LISTENING_PORT 49152
 
+/* IPV6_V6ONLY is missing from MinGW, hack taken from
+ * http://svn.apache.org/repos/asf/apr/apr/trunk/network_io/win32/sockopt.c
+ */
+#ifndef IPV6_V6ONLY
+#define IPV6_V6ONLY 27
+#endif
+
 struct mserv_request_t {
 	/*! Connection handle. */
 	SOCKET connfd;

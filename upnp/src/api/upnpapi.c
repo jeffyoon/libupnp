@@ -341,8 +341,8 @@ static int UpnpInitPreamble(void)
 
 #ifdef UPNP_HAVE_OPTSSDP
 	/* Create the NLS uuid. */
-	uuid_create(&nls_uuid);
-	uuid_unpack(&nls_uuid, gUpnpSdkNLSuuid);
+	uuid_upnp_create(&nls_uuid);
+	uuid_upnp_unpack(&nls_uuid, gUpnpSdkNLSuuid);
 #endif /* UPNP_HAVE_OPTSSDP */
 
 	/* Initializes the handle list. */
@@ -358,13 +358,13 @@ static int UpnpInitPreamble(void)
 		return retVal;
 	}
 
+#ifdef INTERNAL_WEB_SERVER
 #ifdef INCLUDE_DEVICE_APIS
 #if EXCLUDE_SOAP == 0
 	SetSoapCallback(soap_device_callback);
 #endif
 #endif /* INCLUDE_DEVICE_APIS */
 
-#ifdef INTERNAL_WEB_SERVER
 #if EXCLUDE_GENA == 0
 	SetGenaCallback(genaCallback);
 #endif

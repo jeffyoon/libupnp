@@ -41,14 +41,14 @@ typedef struct _uuid_upnp {
 /*!
  * \brief Generate a UUID.
  */
-int uuid_create(
+int uuid_upnp_create(
 	/*! . */
 	uuid_upnp * id);
 
 /*!
  * \brief Out will be xxxx-xx-xx-xx-xxxxxx format.
  */
-void uuid_unpack(
+void uuid_upnp_unpack(
 	/*! . */
 	uuid_upnp * u,
 	/*! . */
@@ -57,7 +57,7 @@ void uuid_unpack(
 /*!
  * \brief Create a UUID using a "name" from a "name space"
  */
-void uuid_create_from_name(
+void uuid_upnp_create_from_name(
 	/*! Resulting UUID. */
 	uuid_upnp * uid,
 	/*! UUID to serve as context, so identical names from different name
@@ -78,7 +78,7 @@ void uuid_create_from_name(
  *
  * \note Lexical ordering is not temporal ordering!
  */
-int uuid_compare(
+int uuid_upnp_compare(
 	/*! . */
 	uuid_upnp * u1,
 	/*! . */

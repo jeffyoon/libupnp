@@ -130,7 +130,7 @@ void linecopylen(
 		#define strncasecmp		strnicmp
 		#define sleep(a)		Sleep((a)*1000)
 		#define usleep(a)		Sleep((a)/1000)
-		#define strerror_r(a,b,c)	(strerror_s((b),(c),(a)))
+		#define strerror_r(a,b,c)       strncpy( b, strerror(a), c)
 	#else
 		#define max(a, b)   (((a)>(b))? (a):(b))
 		#define min(a, b)   (((a)<(b))? (a):(b))

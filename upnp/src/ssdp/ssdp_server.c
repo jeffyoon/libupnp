@@ -69,6 +69,13 @@
 	#endif /* UPNP_ENABLE_IPV6 */
 #endif /* INCLUDE_CLIENT_APIS */
 
+/* IPV6_V6ONLY is missing from MinGW, hack taken from
+ * http://svn.apache.org/repos/asf/apr/apr/trunk/network_io/win32/sockopt.c
+ */
+#ifndef IPV6_V6ONLY
+#define IPV6_V6ONLY 27
+#endif
+
 void RequestHandler();
 
 enum Listener {

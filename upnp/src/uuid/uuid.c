@@ -50,7 +50,7 @@ static uint16_t true_random(void);
 /*!
  * \brief Generator of a UUID.
  */
-int uuid_create(uuid_upnp * uid)
+int uuid_upnp_create(uuid_upnp * uid)
 {
 	uuid_time_t timestamp;
 	uuid_time_t last_time;
@@ -82,7 +82,7 @@ int uuid_create(uuid_upnp * uid)
 	return 1;
 };
 
-void uuid_unpack(uuid_upnp * u, char *out)
+void uuid_upnp_unpack(uuid_upnp * u, char *out)
 {
 	sprintf(out,
 		"%8.8x-%4.4x-%4.4x-%2.2x%2.2x-%2.2x%2.2x%2.2x%2.2x%2.2x%2.2x",
@@ -221,7 +221,7 @@ static uint16_t true_random(void)
 /*!
  * \brief Create a UUID using a "name" from a "name space".
  */
-void uuid_create_from_name(
+void uuid_upnp_create_from_name(
 	/*! resulting UUID. */
 	uuid_upnp *uid,
 	/*! UUID to serve as context, so identical names from different name
@@ -280,7 +280,7 @@ void format_uuid_v3(uuid_upnp *uid, unsigned char hash[16])
  *
  * Note: Lexical ordering is not temporal ordering!
  */
-int uuid_compare(uuid_upnp *u1, uuid_upnp *u2)
+int uuid_upnp_compare(uuid_upnp *u1, uuid_upnp *u2)
 {
 	int i;
 

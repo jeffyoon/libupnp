@@ -61,6 +61,20 @@
 	/* Other systems ??? */
 #endif
 
+#   if defined( __MINGW32__ )
+#       if !defined( _OFF_T_ )
+            typedef long long _off_t;
+            typedef _off_t off_t;
+#           define _OFF_T_
+#       else
+#           ifdef off_t
+#               undef off_t
+#           endif
+#           define off_t long long
+#       endif
+#   endif
+
+
 #define LINE_SIZE  (size_t)180
 #define NAME_SIZE  (size_t)256
 #define MNFT_NAME_SIZE  64
