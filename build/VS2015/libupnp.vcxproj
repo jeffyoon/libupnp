@@ -183,7 +183,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>..\inc;..\msvc;..\..\upnp\inc;..\..\upnp\src\inc;..\..\ixml\inc;..\..\ixml\src\inc;..\..\threadutil\inc;..\..\pthreads;..\..\pthreads\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBUPNP_EXPORTS;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBUPNP_EXPORTS;UPNP_USE_MSVCPP;_CRT_NONSTDC_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_SECURE_SCL;_SCL_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;_AFX_SECURE_NO_WARNINGS;_AFX_SECURE_NO_DEPRECATE;_SECURE_ATL;_ATL_NO_COM_SUPPORT;_ATL_SECURE_NO_WARNINGS;_ATL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -233,7 +233,8 @@ mkdir $(SolutionDir)..\..\lib
 mkdir $(SolutionDir)..\..\lib\x86
 xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x86
 mkdir $(SolutionDir)..\..\bin
-xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin
+mkdir $(SolutionDir)..\..\bin\x86
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin\x86
 xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -302,7 +303,8 @@ mkdir $(SolutionDir)..\..\lib
 mkdir $(SolutionDir)..\..\lib\x64
 xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x64
 mkdir $(SolutionDir)..\..\bin
-xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin
+mkdir $(SolutionDir)..\..\bin\x64
+xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\..\bin\x64
 xcopy /S /Y $(OutDir)libupnp.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -368,7 +370,8 @@ mkdir $(SolutionDir)..\..\lib
 mkdir $(SolutionDir)..\..\lib\x86
 xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x86
 mkdir $(SolutionDir)..\..\bin
-xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin
+mkdir $(SolutionDir)..\..\bin\x86
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin\x86
 xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -431,7 +434,8 @@ mkdir $(SolutionDir)..\..\lib
 mkdir $(SolutionDir)..\..\lib\x64
 xcopy /S /Y $(OutDir)libupnpd.lib $(SolutionDir)..\..\lib\x64
 mkdir $(SolutionDir)..\..\bin
-xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin
+mkdir $(SolutionDir)..\..\bin\x64
+xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\..\bin\64
 xcopy /S /Y $(OutDir)libupnpd.dll $(SolutionDir)..\upnp\sample</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
