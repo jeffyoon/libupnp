@@ -164,8 +164,8 @@
     <TargetName>libupnp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)\$(Platform)\tmp\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\MSVC\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\MSVC\$(Platform)\tmp\$(ProjectName)\</IntDir>
     <TargetName>libupnp</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
@@ -637,15 +637,15 @@ xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x86</Command>
       <OutputFile>.\Release/libupnp.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>mkdir $(SolutionDir)..\..\include
-mkdir $(SolutionDir)..\..\include\upnp
-xcopy /S /Y $(SolutionDir)..\upnp\inc\*.h $(SolutionDir)..\..\include\upnp
-xcopy /S /Y $(SolutionDir)..\build\inc\*.h $(SolutionDir)..\..\include\upnp
-xcopy /S /Y $(SolutionDir)..\ixml\src\inc\*.h $(SolutionDir)..\..\include\upnp
-xcopy /S /Y $(SolutionDir)..\ixml\inc\*.h $(SolutionDir)..\..\include\upnp
-mkdir $(SolutionDir)..\..\lib
-mkdir $(SolutionDir)..\..\lib\x64
-xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x64</Command>
+      <Command>mkdir $(ProjectDir)..\..\..\include
+mkdir $(ProjectDir)..\..\..\include\upnp
+xcopy /S /Y $(ProjectDir)..\..\upnp\inc\*.h $(ProjectDir)..\..\..\include\upnp
+xcopy /S /Y $(ProjectDir)..\..\build\inc\*.h $(ProjectDir)..\..\..\include\upnp
+xcopy /S /Y $(ProjectDir)..\..\ixml\src\inc\*.h $(ProjectDir)..\..\..\include\upnp
+xcopy /S /Y $(ProjectDir)..\..\ixml\inc\*.h $(ProjectDir)..\..\..\include\upnp
+mkdir $(ProjectDir)..\..\..\lib
+mkdir $(ProjectDir)..\..\..\lib\x64
+xcopy /S /Y $(OutDir)libupnp.lib $(ProjectDir)..\..\..\lib\x64</Command>
     </PostBuildEvent>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
