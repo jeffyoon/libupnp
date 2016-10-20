@@ -2146,7 +2146,7 @@ void get_sdk_info(OUT char *info, IN size_t infoSize)
 #ifdef WIN32
 	OSVERSIONINFO versioninfo;
 	versioninfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-
+#if (WINAPI_FAMILY_APP != WINAPI_FAMILY_PC_APP)
 	if (GetVersionEx(&versioninfo) != 0)
 		snprintf(info, infoSize,
 			"%d.%d.%d %d/%s, UPnP/1.0, Portable SDK for UPnP devices/"
@@ -2155,6 +2155,7 @@ void get_sdk_info(OUT char *info, IN size_t infoSize)
 			versioninfo.dwPlatformId, versioninfo.szCSDVersion);
 	else
 		*info = '\0';
+#endif
 #else
 	int ret_code;
 	struct utsname sys_info;

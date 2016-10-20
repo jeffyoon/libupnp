@@ -30,6 +30,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include <Winsock2.h>
+
 /*!
  * \brief System dependent call to get IEEE node ID.
  *
@@ -93,7 +95,9 @@ void get_random_info(unsigned char seed[16])
 	/* Initialize memory area so that valgrind does not complain */
 	memset(&r, 0, sizeof r);
 	/* memory usage stats */
-	GlobalMemoryStatus( &r.m );
+#if (WINAPI_FAMILY_APP != WINAPI_FAMILY_PC_APP)
+    GlobalMemoryStatus( &r.m );
+#endif
 	/* random system stats */
 	GetSystemInfo( &r.s );
 	/* 100ns resolution (nominally) time of day */
@@ -101,9 +105,13 @@ void get_random_info(unsigned char seed[16])
 	/* high resolution performance counter */
 	QueryPerformanceCounter( &r.pc );
 	/* milliseconds since last boot */
-	r.tc = GetTickCount();
+	r.tc = GetTickCount64();
 	r.l = MAX_COMPUTERNAME_LENGTH + 1;
-	GetComputerName( r.hostname, &r.l );
+#if (WINAPI_FAMILY_APP != WINAPI_FAMILY_PC_APP)
+    GetComputerName( r.hostname, &r.l );
+#else
+    GetHostNameW( r.hostname, &r.l );
+#endif
 	/* MD5 it */
 	MD5Init(&c);
 	MD5Update(&c, (unsigned char *)(&r), sizeof r);
