@@ -630,8 +630,9 @@ xcopy /S /Y $(OutDir)libupnp.lib $(SolutionDir)..\..\lib\x86</Command>
       <Culture>0x0407</Culture>
     </ResourceCompile>
     <Lib>
-      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(ProjectDir)..\..\..\bin\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pthreads-UWP-S.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\pthreads\;..\..\pthreads\lib;$(OutDir)..\lib;$(OutDir)..\bin;$(ProjectDir)..\..\..\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreads-UWP.lib</AdditionalDependencies>
+      <AdditionalOptions>/IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
