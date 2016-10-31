@@ -2155,6 +2155,9 @@ void get_sdk_info(OUT char *info, IN size_t infoSize)
 			versioninfo.dwPlatformId, versioninfo.szCSDVersion);
 	else
 		*info = '\0';
+#else
+    snprintf(info, infoSize, "%d.%d.%d %d/%s, UPnP/1.0, Portable SDK for UPnP devices/" PACKAGE_VERSION "\r\n",
+        0, 0, 0, 0, 0);
 #endif
 #else
 	int ret_code;
